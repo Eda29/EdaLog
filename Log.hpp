@@ -5,9 +5,10 @@
 #include <string>
 
 namespace Eda::Util {
-enum class LogInfoLevel { INFO, WARNING, ERROR, CRITICAL };
+enum class LogInfoLevel { DEBUG, INFO, WARNING, ERROR, CRITICAL };
 
 static std::map<LogInfoLevel, std::string> levelTexts = {
+    {LogInfoLevel::DEBUG, "[DEBUG]: "},
     {LogInfoLevel::INFO, "[INFO]: "},
     {LogInfoLevel::WARNING, "[WARNING] "},
     {LogInfoLevel::ERROR, "[ERROR] "},
