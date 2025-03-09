@@ -1,10 +1,11 @@
 # Eda::Util Logger
 
-This is a simple logging utility for writing log messages to both the console and a log file (`log.txt`). It allows logging of messages at various levels of severity (INFO, WARNING, ERROR, and CRITICAL ERROR). The log messages are output both to the standard console and a file for later review, with each log level being associated with its own message prefix.
+This is a simple logging utility for writing log messages to both the console and a log file (`log.txt`). It allows logging of messages at various levels of severity (DEBUG, INFO, WARNING, ERROR, and CRITICAL ERROR). The log messages are output both to the standard console and a file for later review, with each log level being associated with its own message prefix.
 
 ## Features
 
 - Logs messages at 4 levels of severity:
+  - `DEBUG`: Debug informational messages   
   - `INFO`: Regular informational messages
   - `WARNING`: Non-critical issues that should be addressed
   - `ERROR`: Critical errors that need immediate attention
@@ -19,6 +20,7 @@ This is a simple logging utility for writing log messages to both the console an
 
 ### `LogInfoLevel` Enum
 This enum defines the different log levels supported by the logger:
+- `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
@@ -28,6 +30,7 @@ Each log level is associated with a string representation that is printed when t
 
 ### `levelTexts` Map
 A static map that maps each `LogInfoLevel` enum value to a corresponding string prefix that is printed along with the message. The prefixes are as follows:
+- `[DEBUG]: ` for `DEBUG`
 - `[INFO]: ` for `INFO`
 - `[WARNING]: ` for `WARNING`
 - `[ERROR]: ` for `ERROR`
@@ -48,9 +51,10 @@ This class contains a single static method for logging messages.
 ### Example Usage
 
 ```cpp
-#include "Logger.h"
+#include "Log.hpp"
 
 int main() {
+  Eda::Util::Logger::Log(Eda::Util::LogInfoLevel::DEBUG, "This is an Debug informational message.");
   Eda::Util::Logger::Log(Eda::Util::LogInfoLevel::INFO, "This is an informational message.");
   Eda::Util::Logger::Log(Eda::Util::LogInfoLevel::WARNING, "This is a warning.");
   Eda::Util::Logger::Log(Eda::Util::LogInfoLevel::ERROR, "This is an error.");
@@ -62,7 +66,7 @@ int main() {
 
 In the example above:
 - A message is logged for each level.
-- Each message is prefixed with the corresponding severity label (`INFO`, `WARNING`, `ERROR`, `CRITICAL ERROR`).
+- Each message is prefixed with the corresponding severity label (`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL ERROR`).
 - The message is displayed in the console and written to the `log.txt` file.
 
 ## Requirements
